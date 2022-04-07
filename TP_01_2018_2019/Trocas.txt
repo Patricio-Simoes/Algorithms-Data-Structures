@@ -1,0 +1,4 @@
+Jose Pinto;Informatica;6542.209961;1;
+Sandra Macedo;Cozinha;3241.899902;1;
+Miguel Almeida;Construcao Civil;7623.890137;1;
+Tiago Macedo;Banca;9999.990234;1;

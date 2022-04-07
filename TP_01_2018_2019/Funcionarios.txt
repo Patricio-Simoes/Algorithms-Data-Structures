@@ -1,0 +1,7 @@
+Manuel Soares;Artes;342.8;0;
+Jose Pinto;Informatica;6542.21;1;
+Maria Goncalves;Medicina;5142.89;0;
+Sandra Macedo;Cozinha;3241.90;1;
+Miguel Almeida;Construcao Civil;7623.89;1;
+Ricardo Teixeira;Banca;9999.99;0;
+Tiago Macedo;Banca;9999.99;1;
