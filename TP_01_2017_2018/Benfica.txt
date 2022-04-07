@@ -1,0 +1,14 @@
+Ze Pinto;Benfica;1;1;
+Bernardo Silva;Benfica;1;1;
+Antonio Guimaraes;Benfica;1;1;
+Lucas Almeida;Benfica;0;1;
+Pedro Pereira;Benfica;1;1;
+Zecarias Andrade;Benfica;0;0;
+Joao Almeida;Benfica;1;0;
+Joao Francisco;Benfica;1;1;
+Ricardo Monteiro;Benfica;3;1;
+Xavier Meireles;Benfica;1;1;
+Eduardo Ribeiro;Benfica;1;1;
+Carlos Lopes;Benfica;1;1;
+Duarte Ferreira;Benfica;1;1;
+Sandro Lopes;Benfica;1;0;
