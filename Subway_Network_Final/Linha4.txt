@@ -1,0 +1,16 @@
+Pomarelhos;0.0;1;0;
+Arnadelo;2.0;1;0;
+Tuizendes I;2.0;1;0;
+Tuizendes II;2.0;1;0;
+Moçães Igreja;2.0;1;0;
+Torguêda;2.0;1;0;
+Torguêda I;2.0;1;0;
+Menezes;2.0;1;0;
+Torguêda II;2.0;1;0;
+Arrabães;2.0;1;0;
+Granja VR;2.0;1;0;
+Granja;2.0;1;0;
+Parada de Cunhos;2.0;1;0;
+Monte da Forca;2.0;1;0;
+R. Nova das Botelhas;2.0;1;0;
+Terminal Rodoviário;2.0;1;0;
