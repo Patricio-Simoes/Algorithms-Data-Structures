@@ -9,8 +9,8 @@
 #define EMPTY NULL
 #define NO_LINK NULL
 
-typedef enum _STATUS { ERROR = 0, OK = 1 } STATUS; // N„o uso no cÛdigo
-typedef enum _BOOLEAN { FALSE = 0, TRUE = 1 } BOOLEAN; // N„o uso no cÛdigo
+typedef enum _STATUS { ERROR = 0, OK = 1 } STATUS; // N√£o uso no c√≥digo
+typedef enum _BOOLEAN { FALSE = 0, TRUE = 1 } BOOLEAN; // N√£o uso no c√≥digo
 
 typedef struct _BTREE_NODE {
 	void* pData;
@@ -20,22 +20,22 @@ typedef struct _BTREE_NODE {
 
 typedef BTREE_NODE* BTREE;
 
-// ProtÛtipos das funÁıes
+// Prot√≥tipos das fun√ß√µes
 
-bool initBTree(BTREE*); // Inicializa a raÌz como nula
-bool isEmptyBTree(BTREE); // Retorna true se a ·rvore estiver vazia (nula), false caso contr·rio
-bool isLeaf(BTREE); // Retorna true se a raÌz n„o tiver filhos
-bool createNewBTreeNode(BTREE* pNew, void* pData); // Instancia um novo nÛ sem filhos com a data passada por par‚metro
-void printBTreeInorder(BTREE); // Apresenta a ·rvore no ecr„ (Left -> Root -> Right)
-void printBTreePreorder(BTREE); // Apresenta a ·rvore no ecr„ (Root -> Left -> Right)
-void printBTreePostorder(BTREE); // Apresenta a ·rvore no ecr„ (Left -> Right -> Root)
-bool insertBST(BTREE* Root, void* pData); // Insere uma nova folha na ·rvore passada por par‚metro
-BTREE searchBST(BTREE Root, int x); // Se um inteiro pertencer a uma ·rvore dada a sua raÌz, devolve o nÛ
-int countTreeNodes(BTREE Root); // Devolve o n∫ de nÛs de uma ·rvore
-int countTreeLeaves(BTREE Root); // Devolve o n∫ de folhas de uma ·rvore
-int treeHeight(BTREE Root); // Devolve a altura da ·rvore (Maior n∫ possÌvel de arestas em um caminho de um nÛ folha atÈ um nÛ alvo)
-int findDepth(BTREE Root, int x); // Devolve a profundidade de um nÛ, -1 caso n„o exista
-void Menu(char* OP); // Menu de opÁıes
+bool initBTree(BTREE*); // Inicializa a ra√≠z como nula
+bool isEmptyBTree(BTREE); // Retorna true se a √°rvore estiver vazia (nula), false caso contr√°rio
+bool isLeaf(BTREE); // Retorna true se a ra√≠z n√£o tiver filhos
+bool createNewBTreeNode(BTREE* pNew, void* pData); // Instancia um novo n√≥ sem filhos com a data passada por par√¢metro
+void printBTreeInorder(BTREE); // Apresenta a √°rvore no ecr√£ (Left -> Root -> Right)
+void printBTreePreorder(BTREE); // Apresenta a √°rvore no ecr√£ (Root -> Left -> Right)
+void printBTreePostorder(BTREE); // Apresenta a √°rvore no ecr√£ (Left -> Right -> Root)
+bool insertBST(BTREE* Root, void* pData); // Insere uma nova folha na √°rvore passada por par√¢metro
+BTREE searchBST(BTREE Root, int x); // Se um inteiro pertencer a uma √°rvore dada a sua ra√≠z, devolve o n√≥
+int countTreeNodes(BTREE Root); // Devolve o n¬∫ de n√≥s de uma √°rvore
+int countTreeLeaves(BTREE Root); // Devolve o n¬∫ de folhas de uma √°rvore
+int treeHeight(BTREE Root); // Devolve a altura da √°rvore (Maior n¬∫ poss√≠vel de arestas em um caminho de um n√≥ folha at√© um n√≥ alvo)
+int findDepth(BTREE Root, int x); // Devolve a profundidade de um n√≥, -1 caso n√£o exista
+void Menu(char* OP); // Menu de op√ß√µes
 void Buffer(void); // Limpa o Buffer
 
 // Main Program
@@ -44,21 +44,8 @@ int main(void) {
 	BTREE Root;
 	char OP = ' ';
 	int value = 0, aux = 0;
-	int* pA;
 	int* arr;
 	initBTree(&Root);
-	/*pA = (int*)malloc(sizeof(int));
-	*pA = 0;
-	initBTree(&Root);
-	int x = 5;
-	insertBST(&Root, &x);
-	int y = 1;
-	insertBST(&Root, &y);
-	int z = 1;
-	insertBST(&Root, &z);
-	insertBST(&Root, pA);
-	int t = 4;
-	insertBST(&Root, &t);*/
 
 	do {
 		Menu(&OP);
@@ -77,7 +64,7 @@ int main(void) {
 				printf("Elemento %d: ", i);
 				scanf_s("%d", &arr[i]);
 			}
-			// CriaÁ„o da ·rvore
+			// Cria√ß√£o da √°rvore
 			for (int i = 0; i < aux; i++)
 				insertBST(&Root, &arr[i]);
 			break;
@@ -96,7 +83,7 @@ int main(void) {
 			printf("\n------------------\nTravessia Postorder\n------------------\n\n");
 			printBTreePostorder(Root);
 			break;
-		// Contagem de nÛs
+		// Contagem de n√≥s
 		case '5':
 			printf("\n---------------\nContagem de nos\n---------------\n");
 			printf("\nNumero de nos da arvore atual: %d", countTreeNodes(Root));
@@ -106,7 +93,7 @@ int main(void) {
 			printf("\n------------------\nContagem de folhas\n------------------\n");
 			printf("\nNumero de folhas da arvore atual: %d", countTreeLeaves(Root));
 			break;
-		// Determinar o nivel de um nÛ
+		// Determinar o nivel de um n√≥
 		case '7':
 			printf("\n--------------\nNivel de um no\n--------------\n");
 			printf("Valor do no a procurar: ");
@@ -135,23 +122,23 @@ int main(void) {
 	return 0;
 }
 
-// FunÁıes
+// Fun√ß√µes
 
 bool initBTree(BTREE* pBT) {
 	*pBT = NULL;
 	return true;
 }
 bool isEmptyBTree(BTREE Root) {
-	// RaÌz est· vazia?
+	// Ra√≠z est√° vazia?
 	return (Root == NULL) ? true : false;
 }
 bool isLeaf(BTREE Tree) {
-	// RaÌz tem filho ‡ esquerda/direita?
+	// Ra√≠z tem filho √† esquerda/direita?
 	return ((LEFT(Tree) == NULL) && RIGHT(Tree) == NULL) ? true : false;
 }
 bool createNewBTreeNode(BTREE* pNew, void* pData) {
 	BTREE pTemp;
-	// AlocaÁ„o Din‚mica
+	// Aloca√ß√£o Din√¢mica
 	if ((pTemp = (BTREE)malloc(sizeof(BTREE_NODE))) == NULL)
 		return false;
 	*pNew = pTemp;
@@ -161,7 +148,7 @@ bool createNewBTreeNode(BTREE* pNew, void* pData) {
 	return true;
 }
 void printBTreeInorder(BTREE Root) {
-	// ¡rvore vazia?
+	// √Årvore vazia?
 	if (isEmptyBTree(Root) == true) 
 		return;
 	printBTreeInorder(LEFT(Root));
@@ -170,7 +157,7 @@ void printBTreeInorder(BTREE Root) {
 	return;
 }
 void printBTreePreorder(BTREE Root) {
-	// ¡rvore vazia?
+	// √Årvore vazia?
 	if (isEmptyBTree(Root) == true)
 		return;
 	printf("%d -> ", *(int*)DATA(Root));
@@ -179,7 +166,7 @@ void printBTreePreorder(BTREE Root) {
 	return;
 }
 void printBTreePostorder(BTREE Root) {
-	// ¡rvore vazia?
+	// √Årvore vazia?
 	if (isEmptyBTree(Root) == true)
 		return;	
 	printBTreePostorder(LEFT(Root));
@@ -188,7 +175,7 @@ void printBTreePostorder(BTREE Root) {
 	return;
 }
 bool insertBST(BTREE* Root, void* pData) {
-	// ¡rvore vazia? <=> Nova folha = RaÌz
+	// √Årvore vazia? <=> Nova folha = Ra√≠z
 	if (isEmptyBTree(*Root)) {
 		BTREE pNew;
 		if (createNewBTreeNode(&pNew, pData) == NULL)
@@ -196,9 +183,9 @@ bool insertBST(BTREE* Root, void* pData) {
 		*Root = pNew;
 		return true;
 	}
-	// Se n„o estiver vazia verifica onde deve colocar a nova folha
-	// Se for menor coloca ‡ esquerda
-	// Se for maior ou igual coloca ‡ direita
+	// Se n√£o estiver vazia verifica onde deve colocar a nova folha
+	// Se for menor coloca √† esquerda
+	// Se for maior ou igual coloca √† direita
 	if (*(int*)(pData) < *(int*)DATA(*Root))
 		insertBST(&(LEFT(*Root)), pData);
 	else
@@ -206,10 +193,10 @@ bool insertBST(BTREE* Root, void* pData) {
 	return true;
 }
 BTREE searchBST(BTREE Root, int x) {
-	// RaÌz nula ou valor na raÌz?
+	// Ra√≠z nula ou valor na ra√≠z?
 	if (Root == NULL || *(int*)DATA(Root) == x)
 		return Root;
-	// Procura na sub-·rvore da esquerda
+	// Procura na sub-√°rvore da esquerda
 	if (x < *(int*)DATA(Root))
 		return searchBST(LEFT(Root), x);
 	return searchBST(LEFT(Root), x);
@@ -218,17 +205,17 @@ int countTreeNodes(BTREE Root) {
 	return (Root == NULL) ? 0 : (1 + countTreeNodes(LEFT(Root)) + countTreeNodes(RIGHT(Root)));
 }
 int countTreeLeaves(BTREE Root) {
-	// ¡rvore vazia?
+	// √Årvore vazia?
 	if (isEmptyBTree(Root))
 		return 0;
-	// Verifica se o nÛ atual È uma folha
+	// Verifica se o n√≥ atual √© uma folha
 	if (LEFT(Root) == NULL && RIGHT(Root) == NULL)
 		return 1;
-	// Retorna a soma de folhas da sub-·rvore esquerda com a sub-·rvore direita
+	// Retorna a soma de folhas da sub-√°rvore esquerda com a sub-√°rvore direita
 	return countTreeLeaves(LEFT(Root)) + countTreeLeaves(RIGHT(Root));
 }
 int treeHeight(BTREE Root) {
-	// ¡rvore vazia <=> Height = -1
+	// √Årvore vazia <=> Height = -1
 	if (isEmptyBTree(Root))
 		return -1;
 	int altEsquerda = treeHeight(LEFT(Root));
@@ -239,16 +226,16 @@ int treeHeight(BTREE Root) {
 }
 int findDepth(BTREE Root, int x) {
 	int depth = -1;
-	// ¡rvore vazia?
+	// √Årvore vazia?
 	if (isEmptyBTree(Root))
 		return depth;
-	// RaÌz = nÛ?
+	// Ra√≠z = n√≥?
 	if (*(int*)DATA(Root) == x)
 		return depth + 1;
-	// Verifica se o valor est· presente na sub-·rvore da esquerda ou na sub-·rvore da direita
+	// Verifica se o valor est√° presente na sub-√°rvore da esquerda ou na sub-√°rvore da direita
 	if ((depth = findDepth(LEFT(Root), x)) >= 0 || (depth = findDepth(RIGHT(Root), x)) >= 0)
 		return depth + 1;
-	// N„o encontrou o nÛ
+	// N√£o encontrou o n√≥
 	return depth;
 }
 
