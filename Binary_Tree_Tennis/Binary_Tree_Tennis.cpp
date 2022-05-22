@@ -82,26 +82,32 @@ int main(void)
             printf("\n--------------\nLista de Jogos\n--------------\n\n");
             PrintAllGames(tree);
             break;
+            // Apresenta o número de eliminatórias
         case '3':
             printf("\n-----------------------\nNumero de Eliminatorias\n-----------------------\n");
             printf("\n%d\n", BTreeDeep(tree));
             break;
+            // Apresenta o número de jogos
         case '4':
             printf("\n---------------\nNumero de Jogos\n---------------\n");
             printf("\n%d\n", BTreeSize(tree)/2);
             break;
+            // Apresenta o número de sets
         case '5':
             printf("\n--------------\nNumero de Sets\n--------------\n");
             printf("\n%d\n", CountTotalSets(tree));
             break;
+            // Apresenta o vencedor do torneio
         case '6':
             printf("\n-------------------\nVencedor do Torneio\n-------------------\n");
             printf("\nVencedor: %s\n", ((PLAYER*)DATA(tree))->name); // Quem está na raíz da árvore é o atual vencedor.
             break;
+            // Apresenta os jogos dispotados pelo vencedor
         case '7':
             printf("\n------------------------------\nJogos dispotados pelo Vencedor\n------------------------------\n\n");
             PrintWinnerGames(tree);
             break;
+            // Apresenta o número de sets ganhos pelo vencedor
         case '8':
             printf("\n-------------------------\nSets ganhos pelo Vencedor\n-------------------------\n");
             printf("\n%d\n", CountWinnerSets(tree, ((PLAYER*)DATA(tree))->name));
