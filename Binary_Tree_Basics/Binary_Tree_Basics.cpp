@@ -199,7 +199,7 @@ BTREE searchBST(BTREE Root, int x) {
 	// Procura na sub-árvore da esquerda
 	if (x < *(int*)DATA(Root))
 		return searchBST(LEFT(Root), x);
-	return searchBST(LEFT(Root), x);
+	return searchBST(RIGHT(Root), x);
 }
 int countTreeNodes(BTREE Root) {
 	return (Root == NULL) ? 0 : (1 + countTreeNodes(LEFT(Root)) + countTreeNodes(RIGHT(Root)));
