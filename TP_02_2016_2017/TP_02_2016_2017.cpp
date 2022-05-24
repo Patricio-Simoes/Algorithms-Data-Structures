@@ -7,12 +7,11 @@
 #define MAX_NAME 30
 #define DIRETORIAS 15
 int i = 1;
-bool retorno = false;
 
 typedef struct DIR {
     char nome[MAX_NAME]; // Nome Ficheiro
-    int n_fich; // Nº Ficheiros
-    int n_Kb; // Nº Kbytes
+    int n_fich; // NÂº Ficheiros
+    int n_Kb; // NÂº Kbytes
 };
 typedef struct BTREE_NODE {
     void* data;
@@ -26,19 +25,19 @@ typedef struct BTREE_NODE {
 #define LEFT(node) ((node)->left)
 #define RIGHT(node) ((node)->right)
 
-// Protótipos
+// ProtÃ³tipos
 
-BTREE_NODE* NewBtreeNode(void* data); // Tenta alocar e retornar um novo nó com a data passada por parâmetro
-void BtreeFree(BTREE_NODE* root); // Liberta todos os nós de uma árvore previamente alocados
-BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right); // Inicializa um nó alocado-o e fazendo a ligação com o filho esquerdo e direito
-BTREE_NODE* CreateBtree(void** data, int i, int size); // Inicializa uma árvore através da leitura de um apontador carregado com dados do tipo void**
-bool ReadFile(char* fileName, void** data); // Função que lê as diretorias de um ficheiro, (no caso "Diretorias.txt"), formato dos dados: string;int;int\n
-void findDirectories(BTREE_NODE* root, int value); // Percorre a árvore de forma inorder e apresenta o nome das diretorias com nº de Kbs superior a value
-int CountAllDirectoryFiles(BTREE_NODE* root, char* name); // Devolve um inteiro que representa o nº total de ficheiros numa diretoria e suas subdiretorias, (nº de nós abaixo de um nó)
-bool IsDirectory(BTREE_NODE* root, const char* name); // Verifica o nó passado é a diretoria passada
-bool IsBtreeNode(BTREE_NODE* root, const char* name); // Verifica se um nó pertence a uma árvore
-int CountDirectoryFiles(BTREE_NODE* Root); // Retorna o nº de ficheiros que uma única diretoria contém
-int CountEmptyDirectories(BTREE_NODE* root); // Retorna o número total de diretorias vazias (n_fich = 0)
+BTREE_NODE* NewBtreeNode(void* data); // Tenta alocar e retornar um novo nÃ³ com a data passada por parÃ¢metro
+void BtreeFree(BTREE_NODE* root); // Liberta todos os nÃ³s de uma Ã¡rvore previamente alocados
+BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right); // Inicializa um nÃ³ alocado-o e fazendo a ligaÃ§Ã£o com o filho esquerdo e direito
+BTREE_NODE* CreateBtree(void** data, int i, int size); // Inicializa uma Ã¡rvore atravÃ©s da leitura de um apontador carregado com dados do tipo void**
+bool ReadFile(char* fileName, void** data); // FunÃ§Ã£o que lÃª as diretorias de um ficheiro, (no caso "Diretorias.txt"), formato dos dados: string;int;int\n
+void findDirectories(BTREE_NODE* root, int value); // Percorre a Ã¡rvore de forma inorder e apresenta o nome das diretorias com nÂº de Kbs superior a value
+int CountAllDirectoryFiles(BTREE_NODE* root, char* name); // Devolve um inteiro que representa o nÂº total de ficheiros numa diretoria e suas subdiretorias, (nÂº de nÃ³s abaixo de um nÃ³)
+bool IsDirectory(BTREE_NODE* root, const char* name); // Verifica o nÃ³ passado Ã© a diretoria passada
+bool IsBtreeNode(BTREE_NODE* root, const char* name); // Verifica se um nÃ³ pertence a uma Ã¡rvore
+int CountDirectoryFiles(BTREE_NODE* Root); // Retorna o nÂº de ficheiros que uma Ãºnica diretoria contÃ©m
+int CountEmptyDirectories(BTREE_NODE* root); // Retorna o nÃºmero total de diretorias vazias (n_fich = 0)
 void Menu(char* OP);
 void Buffer(void);
 
@@ -62,21 +61,21 @@ int main(void)
     }
     Sleep(1000);
     system("CLS");
-    // Apresentação do Menu
+    // ApresentaÃ§Ã£o do Menu
     do {
         Menu(&OP);
         switch (OP) {
-            // Saída do programa
+            // SaÃ­da do programa
         case '0':
             exit(0);
             break;
-            // Apresenta diretorias com nº Kbs superior a 1000
+            // Apresenta diretorias com nÂº Kbs superior a 1000
         case '1':
             printf("\n-------------------------------\nDiretorias com mais de 1000 Kbs\n-------------------------------\n");
             findDirectories(tree, 1000);
             i = 1;
             break;
-            // Apresenta no ecrã o número de ficheiros dentro de uma diretoria (Nº de nós abaixo de um nó)
+            // Apresenta no ecrÃ£ o nÃºmero de ficheiros dentro de uma diretoria (NÂº de nÃ³s abaixo de um nÃ³)
         case '2':
             printf("\n-------------------------------------------\nNumero de ficheiros dentro de uma Diretoria\n-------------------------------------------\n");
             printf("Nome da Diretoria: ");
@@ -86,14 +85,13 @@ int main(void)
             }
             else
                 printf("A Diretoria \"%s\" nao existe!\n", dirName);
-            retorno = false;
             break;
-            // Apresenta no ecrã o número de diretorias vazias
+            // Apresenta no ecrÃ£ o nÃºmero de diretorias vazias
         case '3':
             printf("\n---------------------------\nNumero de Diretorias vazias\n---------------------------\n");
             printf("Numero de Diretorias vazias: %d\n", CountEmptyDirectories(tree));
             break;
-            // Opção inválida
+            // OpÃ§Ã£o invÃ¡lida
         default:
             printf("Opcao invalida!\n");
             break;
@@ -106,16 +104,16 @@ int main(void)
     } while (OP != '0');
 }
 
-// Funções
+// FunÃ§Ãµes
 
 void BtreeFree(BTREE_NODE* root) {
-    // Caso a root seja nula retorna para libertar o nó pai, se a root for nula desde vo início, a árvore está vazia
+    // Caso a root seja nula retorna para libertar o nÃ³ pai, se a root for nula desde vo inÃ­cio, a Ã¡rvore estÃ¡ vazia
     if (root == NULL)
         return;
-    // Chamada recursiva para libertar primeiro todos os nós que estão abaixo do atual
+    // Chamada recursiva para libertar primeiro todos os nÃ³s que estÃ£o abaixo do atual
     BtreeFree(LEFT(root));
     BtreeFree(RIGHT(root));
-    // Libertação dos dados
+    // LibertaÃ§Ã£o dos dados
     free(DATA(root));
     free(root);
 }
@@ -126,13 +124,13 @@ BTREE_NODE* CreateBtree(void** data, int i, int size) {
 }
 BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right) {
     BTREE_NODE* newNode;
-    // Verifica se os dados são válidos
+    // Verifica se os dados sÃ£o vÃ¡lidos
     if (data == NULL)
         return NULL;
-    // Tenta inicializar o nó
+    // Tenta inicializar o nÃ³
     if ((newNode=NewBtreeNode(data)) == NULL)
         return NULL;
-    // Estabelece a ligação entre os filhos
+    // Estabelece a ligaÃ§Ã£o entre os filhos
     LEFT(newNode) = left;
     RIGHT(newNode) = right;
     // Retorna o nodo inicializado
@@ -143,7 +141,7 @@ bool ReadFile(char* fileName, void** data) {
     FILE* ptr = NULL;
     void* voidPTR = NULL;
     int i = 0;
-    // Verifica se os parâmetros são válidos
+    // Verifica se os parÃ¢metros sÃ£o vÃ¡lidos
     if (fileName == NULL && data == NULL)
         return false;
     // Tenta abrir o ficheiro
@@ -151,12 +149,12 @@ bool ReadFile(char* fileName, void** data) {
         return false;
     // Carrega os dados para o ponteiro void**
     while (!feof(ptr)) {
-        // Tenta alocar dinâmicamente um ponteiro void* para carregar as informações no ponteiro void**
+        // Tenta alocar dinÃ¢micamente um ponteiro void* para carregar as informaÃ§Ãµes no ponteiro void**
         if ((voidPTR = malloc(sizeof(DIR))) != NULL) {
             fscanf(ptr, "%[^;];%d;%d\n", ((DIR*)voidPTR)->nome, &((DIR*)voidPTR)->n_fich, &((DIR*)voidPTR)->n_Kb);
             data[i++] = voidPTR;
         }
-        // Caso esta alocação falhe, é necessário desalocar qualquer dados que tenha sido préviamente
+        // Caso esta alocaÃ§Ã£o falhe, Ã© necessÃ¡rio desalocar qualquer dados que tenha sido prÃ©viamente
         else {
             for (int j = i; j >= 0; j--)
                 free(data[j]);
@@ -168,13 +166,13 @@ bool ReadFile(char* fileName, void** data) {
 }
 BTREE_NODE* NewBtreeNode(void* data) {
     BTREE_NODE* newNode;
-    // Verifica se a data é válida
+    // Verifica se a data Ã© vÃ¡lida
     if (data == NULL)
         return NULL;
-    // Tenta alocar dinâmicamente
+    // Tenta alocar dinÃ¢micamente
     if ((newNode = (BTREE_NODE*)malloc(sizeof(BTREE_NODE))) == NULL)
         return NULL;
-    // Atribuição dos dados
+    // AtribuiÃ§Ã£o dos dados
     DATA(newNode) = data;
     LEFT(newNode) = NULL;
     RIGHT(newNode) = NULL;
@@ -183,66 +181,66 @@ BTREE_NODE* NewBtreeNode(void* data) {
 }
 
 void findDirectories(BTREE_NODE* root, int value) {
-    // Verifica se os dados são válidos
+    // Verifica se os dados sÃ£o vÃ¡lidos
     if (root == NULL || value == NULL)
         return;
-    // Faz a comparação, no caso do ex. 1000 Kbs
+    // Faz a comparaÃ§Ã£o, no caso do ex. 1000 Kbs
     if (((DIR*)DATA(root))->n_Kb > value)
         printf("\n#Diretoria %d:\nNome: %s\nNumero do Ficheiro: %i\nNumero de Kbs: %i\n", i++, ((DIR*)DATA(root))->nome, ((DIR*)DATA(root))->n_fich, ((DIR*)DATA(root))->n_Kb);
-    // Chamada recursiva para as sub-árvores esquerda e direita
+    // Chamada recursiva para as sub-Ã¡rvores esquerda e direita
     findDirectories(LEFT(root), value);
     findDirectories(RIGHT(root), value);
 }
 bool IsDirectory(BTREE_NODE* root, const char* name) {
-    // Verifica se os dados são válidos
+    // Verifica se os dados sÃ£o vÃ¡lidos
     if (root == NULL || name == NULL)
         return false;
-    // Verifica se o nó atual é o nó procurado
+    // Verifica se o nÃ³ atual Ã© o nÃ³ procurado
     if (!strcmp((((DIR*)DATA(root))->nome), name))
         return true;
     return false;
 }
 int CountDirectoryFiles(BTREE_NODE* root) {
-    // Se a raíz for nula, não há nada a contar
+    // Se a raÃ­z for nula, nÃ£o hÃ¡ nada a contar
     if (root == NULL)
         return 0;
-    // Chamada recursiva que retorna o somatório dos ficheiros das sub-árvores esquerda e direita
+    // Chamada recursiva que retorna o somatÃ³rio dos ficheiros das sub-Ã¡rvores esquerda e direita
     return ((DIR*)DATA(root))->n_fich + CountDirectoryFiles(LEFT(root)) + CountDirectoryFiles(RIGHT(root));
 }
 int CountAllDirectoryFiles(BTREE_NODE* root, char* name) {
 
-    // Verifica se os dados são válidos
+    // Verifica se os dados sÃ£o vÃ¡lidos
     if (root == NULL || name == NULL)
         return 0;
-    // Verfifica se a diretoria pertence à árvore
+    // Verfifica se a diretoria pertence Ã  Ã¡rvore
     if (IsDirectory(root, name))
-        return CountDirectoryFiles(root); //retorna o numero de files desse nó para baixo
+        return CountDirectoryFiles(root); //retorna o numero de files desse nÃ³ para baixo
 
-    // Chamada recursiva às sub-árvores da esquerda e direita para fazer a contagem dos ficheiros que se encontram abaixo
+    // Chamada recursiva Ã s sub-Ã¡rvores da esquerda e direita para fazer a contagem dos ficheiros que se encontram abaixo
     return CountAllDirectoryFiles(LEFT(root), name) + CountAllDirectoryFiles(RIGHT(root), name);
 }
 
 bool IsBtreeNode(BTREE_NODE* root, const char* name) {
-    // Verifica se os dados são válidos
+    // Verifica se os dados sÃ£o vÃ¡lidos
     if (root == NULL || name == NULL)
         return false;
-    // Verifica se o nó atual é o procurado
+    // Verifica se o nÃ³ atual Ã© o procurado
     if (IsDirectory(root, name))
         return true;
 
-    // Chamada recursiva até encontrar o nó procurado, (se não encontrar retorna false)
+    // Chamada recursiva atÃ© encontrar o nÃ³ procurado, (se nÃ£o encontrar retorna false)
     return IsBtreeNode(LEFT(root), name) || IsBtreeNode(RIGHT(root), name);
 }
 
 int CountEmptyDirectories(BTREE_NODE* root) {
     int count = 0;
-    // Se a raíz fora nula não há nada a contar
+    // Se a raÃ­z fora nula nÃ£o hÃ¡ nada a contar
     if (root == NULL)
         return 0;
-    // Se o nó atual tiver um número de ficheiros igual a 0, soma 1 ao contador
+    // Se o nÃ³ atual tiver um nÃºmero de ficheiros igual a 0, soma 1 ao contador
     if (((DIR*)DATA(root))->n_fich == 0)
         return 1;
-    // Chama a função recursivamente de modo a contar as diretorias vazias das sub-árvores esquerda e direita
+    // Chama a funÃ§Ã£o recursivamente de modo a contar as diretorias vazias das sub-Ã¡rvores esquerda e direita
     count += CountEmptyDirectories(LEFT(root)) + CountEmptyDirectories(RIGHT(root));
 }
 void Menu(char* OP) {
