@@ -1,1 +1,1 @@
-Resolution of a Algorithms & Data Structures test.
+
