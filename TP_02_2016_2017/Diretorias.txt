@@ -1,0 +1,15 @@
+Diretoria1;1254;254362
+Diretoria2;1255;999
+Diretoria3;1256;120331
+Diretoria4;1257;093089
+Diretoria5;1258;635
+Diretoria6;1259;126304
+Diretoria7;1260;897426
+Diretoria8;0;215
+Diretoria9;1262;149791
+Diretoria10;1263;123763
+Diretoria11;1264;888
+Diretoria12;1265;213765
+Diretoria13;1266;102398
+Diretoria14;0;675934
+Diretoria15;1268;123897
