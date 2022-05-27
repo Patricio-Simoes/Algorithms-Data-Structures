@@ -24,28 +24,28 @@ typedef struct BTREE_NODE {
 #define LEFT(node) ((node)->left)
 #define RIGHT(node) ((node)->right)
 
-// Variáveis Globais
+// VariÃ¡veis Globais
 int workers = 0;
 
-// Protótipos
+// ProtÃ³tipos
 
-BTREE_NODE* NewTreeNode(void* data); // Tenta alocar um novo nó com a data passada, retorna false se falhar
-void BtreeFree(BTREE_NODE* root); // Desaloca uma árvore inteira da memória
-BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right); // Inicializa um nó com os filhos e data passados
-BTREE_NODE* CreateBtree(void** data, int i, int size); // Cria uma árvore com a data carregada no apontador void**
-bool ReadFile(char* fileName, void** data); // Lê um ficheiro e carrega os dados para o ponteiro void**
+BTREE_NODE* NewTreeNode(void* data); // Tenta alocar um novo nÃ³ com a data passada, retorna false se falhar
+void BtreeFree(BTREE_NODE* root); // Desaloca uma Ã¡rvore inteira da memÃ³ria
+BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right); // Inicializa um nÃ³ com os filhos e data passados
+BTREE_NODE* CreateBtree(void** data, int i, int size); // Cria uma Ã¡rvore com a data carregada no apontador void**
+bool ReadFile(char* fileName, void** data); // LÃª um ficheiro e carrega os dados para o ponteiro void**
 double GetSingleDptProfit(BTREE_NODE* root); // Retorna um float que representa os lucros de um departamento (ganhos-despesas)
 double GetCompanyProfits(BTREE_NODE* root); //Retorna um float que representa os lucros de todos os departamentos da empresa (ganhos-despesas)
-int GetMostPeopleDepartment(BTREE_NODE* root); // Retorna o número de Pessoas do departamento com maior número de pessoas
-void ShowMostPeopleDepartment(BTREE_NODE* root, int count); // Mostra as informações do(s) Departamento(s) com maior nº de pessoas
-void ShowDepartmentInfo(BTREE_NODE* root); // Mostra as informações de um departamento
-bool IsDepartment(BTREE_NODE* root, const char* name); // Verifica o nó passado é a diretoria passada
-bool IsBtreeNode(BTREE_NODE* root, const char* name); // Verifica se um nó pertence a uma árvore
-BTREE_NODE* find(BTREE_NODE* root, char* name); // Procura um departamento através da designação e retorna o seu apontador
-void ShowDepartment(BTREE_NODE* root); // Mostra no ecrã as informações do departamento passado
+int GetMostPeopleDepartment(BTREE_NODE* root); // Retorna o nÃºmero de Pessoas do departamento com maior nÃºmero de pessoas
+void ShowMostPeopleDepartment(BTREE_NODE* root, int count); // Mostra as informaÃ§Ãµes do(s) Departamento(s) com maior nÂº de pessoas
+void ShowDepartmentInfo(BTREE_NODE* root); // Mostra as informaÃ§Ãµes de um departamento
+bool IsDepartment(BTREE_NODE* root, const char* name); // Verifica o nÃ³ passado Ã© a diretoria passada
+bool IsBtreeNode(BTREE_NODE* root, const char* name); // Verifica se um nÃ³ pertence a uma Ã¡rvore
+BTREE_NODE* find(BTREE_NODE* root, char* name); // Procura um departamento atravÃ©s da designaÃ§Ã£o e retorna o seu apontador
+void ShowDepartment(BTREE_NODE* root); // Mostra no ecrÃ£ as informaÃ§Ãµes do departamento passado
 void ShowAllDepartments(BTREE_NODE* root); // Mostra todos os departamentos
 
-void Menu(char* OP); // Menu de opções
+void Menu(char* OP); // Menu de opÃ§Ãµes
 void Buffer(void); // Limpa o buffer
 
 int main(void)
@@ -77,7 +77,7 @@ int main(void)
 	}
 	Sleep(1000);
 	system("CLS");
-	// Apresentação do Menu
+	// ApresentaÃ§Ã£o do Menu
 	do {
 		Menu(&OP);
 		Buffer();
@@ -91,7 +91,7 @@ int main(void)
 			printf("\n-------------------------\nMostar Lucros da Empresa\n-------------------------\n");
 			printf("Total de Lucros: Aprox. %.2lf Euros", GetCompanyProfits(tree));
 			break;
-			// Mostrar departamento com maior número de pessoas
+			// Mostrar departamento com maior nÃºmero de pessoas
 		case '2':
 			printf("\n---------------------------------------------------\nMostrar Departamento(s) com maior numero de Pessoas\n---------------------------------------------------\n");
 			count = GetMostPeopleDepartment(tree);
@@ -103,10 +103,10 @@ int main(void)
 			printf("\nDesignacao do Departamento: ");
 			scanf("%s", &desig);
 			if (!IsBtreeNode(tree, desig))
-				// Verifica se o departamento introduzido se encontra na árvore
+				// Verifica se o departamento introduzido se encontra na Ã¡rvore
 				printf("O Departamento \"%s\" nao existe!\n", desig);
 			else {
-				// Liberta as sub-árvores da esquerda ou da direita deixando a raíz intacta de modo a que esta "acolha" os trabalhadores dos filhos apagados
+				// Liberta as sub-Ã¡rvores da esquerda ou da direita deixando a raÃ­z intacta de modo a que esta "acolha" os trabalhadores dos filhos apagados
 				/*BtreeFree(LEFT(find(tree, desig)));
 				BtreeFree(RIGHT(find(tree, desig)));
 				((DEPT*)DATA(find(tree, desig)))->n_pessoas += workers;*/
@@ -122,7 +122,7 @@ int main(void)
 			printf("\nDesignacao do Departamento: ");
 			scanf("%s", &desig);
 			if (!IsBtreeNode(tree, desig))
-				// Verifica se o departamento introduzido se encontra na árvore
+				// Verifica se o departamento introduzido se encontra na Ã¡rvore
 				printf("O Departamento \"%s\" nao existe!\n", desig);
 			else {
 				ShowDepartment(find(tree, desig));
@@ -131,11 +131,12 @@ int main(void)
 				ShowAllDepartments(RIGHT(find(tree, desig)));
 			}
 			break;
+			// Mostra todos os departamentos
 		case '5':
 			printf("\n--------------------------\nInformacoes Departamentos:\n--------------------------\n");
 			ShowAllDepartments(tree);
 			break;
-			// Opção inválida
+			// OpÃ§Ã£o invÃ¡lida
 		default:
 			printf("Opcao invalida!\n");
 			break;
@@ -153,16 +154,16 @@ int main(void)
 	return 0;
 }
 
-// Funções
+// FunÃ§Ãµes
 
 BTREE_NODE* NewTreeNode(void* data) {
 	BTREE_NODE* newNode = NULL;
-	// Verifica se a data é válida
+	// Verifica se a data Ã© vÃ¡lida
 	if (data == NULL)
 		return NULL;
-	// Alocação dinâmica
+	// AlocaÃ§Ã£o dinÃ¢mica
 	if (newNode = (BTREE_NODE*)malloc(sizeof(BTREE_NODE))) {
-		// Atribuição de dados
+		// AtribuiÃ§Ã£o de dados
 		DATA(newNode) = data;
 		LEFT(newNode) = NULL;
 		RIGHT(newNode) = NULL;
@@ -171,10 +172,10 @@ BTREE_NODE* NewTreeNode(void* data) {
 	return newNode;
 }
 void BtreeFree(BTREE_NODE* root) {
-	// Caso a root seja nula retorna para libertar o nó pai, se a root for nula desde vo início, a árvore está vazia
+	// Caso a root seja nula retorna para libertar o nÃ³ pai, se a root for nula desde vo inÃ­cio, a Ã¡rvore estÃ¡ vazia
 	if (root == NULL)
 		return;
-	// Chamada recursiva para libertar primeiro todos os nós que estão abaixo do atual
+	// Chamada recursiva para libertar primeiro todos os nÃ³s que estÃ£o abaixo do atual
 	BtreeFree(LEFT(root));
 	BtreeFree(RIGHT(root));
 	if (LEFT(root) != NULL){
@@ -194,10 +195,10 @@ void BtreeFree(BTREE_NODE* root) {
 	
 BTREE_NODE* InitNode(void* data, BTREE_NODE* left, BTREE_NODE* right) {
 	BTREE_NODE* newNode = NULL;
-	// Verifica se a data é válida
+	// Verifica se a data Ã© vÃ¡lida
 	if (data == NULL)
 		return NULL;
-	// Tenta inicializar o nó
+	// Tenta inicializar o nÃ³
 	if (!(newNode = NewTreeNode(data)))
 		return NULL;
 	// Atribui os filhos
@@ -215,7 +216,7 @@ bool ReadFile(char* fileName, void** data) {
 	FILE* ptr = NULL;
 	void* voidPTR = NULL;
 	int i = 0;
-	// Verifica se os dados são válidos
+	// Verifica se os dados sÃ£o vÃ¡lidos
 	if (fileName == NULL || data == NULL)
 		return false;
 	// Tenta abrir o ficheiro
@@ -223,12 +224,12 @@ bool ReadFile(char* fileName, void** data) {
 		return false;
 	// Carrega os dados para o ponteiro
 	while (!feof(ptr)){
-		// Tenta alocar dinâmicamente um ponteiro void* para carregar as informações no ponteiro void**
+		// Tenta alocar dinÃ¢micamente um ponteiro void* para carregar as informaÃ§Ãµes no ponteiro void**
 		if ((voidPTR = (DEPT*)malloc(sizeof(DEPT))) != NULL) {
 			fscanf(ptr, "%[^;];%lf;%lf;%d\n", ((DEPT*)voidPTR)->desig, &(((DEPT*)voidPTR)->ganhos), &(((DEPT*)voidPTR)->despesas), &(((DEPT*)voidPTR)->n_pessoas));
 			data[i++] = voidPTR;
 		}
-		// Caso esta alocação falhe, é necessário desalocar quaisquer dados que tenham sido préviamente alocados
+		// Caso esta alocaÃ§Ã£o falhe, Ã© necessÃ¡rio desalocar quaisquer dados que tenham sido prÃ©viamente alocados
 		else {
 			for (int j = i; j >= 0; j--)
 				free(data[j]);
@@ -239,13 +240,13 @@ bool ReadFile(char* fileName, void** data) {
 	return true;
 }
 double GetSingleDptProfit(BTREE_NODE* root) {
-	// Se a raíz for nula, a árvore está vazia, ou seja, não há nenhum departamento
+	// Se a raÃ­z for nula, a Ã¡rvore estÃ¡ vazia, ou seja, nÃ£o hÃ¡ nenhum departamento
 	if (root == NULL)
 		return 0;
 	return ((((DEPT*)DATA(root))->ganhos) - (((DEPT*)DATA(root))->despesas));
 }
 double GetCompanyProfits(BTREE_NODE* root) {
-	// Se a raíz for nula, a árvore está vazia, ou seja, não há nenhum departamento
+	// Se a raÃ­z for nula, a Ã¡rvore estÃ¡ vazia, ou seja, nÃ£o hÃ¡ nenhum departamento
 	if (root == NULL)
 		return 0;
 	//return GetSingleDptProfit(LEFT(root)) + GetSingleDptProfit(RIGHT(root));
@@ -253,15 +254,15 @@ double GetCompanyProfits(BTREE_NODE* root) {
 
 }
 int GetMostPeopleDepartment(BTREE_NODE* root) {
-	// Se a raíz for nula não há departamentos a procurar
+	// Se a raÃ­z for nula nÃ£o hÃ¡ departamentos a procurar
 	int maior = 0;
 	int maiorLeft,maiorRight ;
 	if (root == NULL)
 		return maior;
-	// Compara o maior número de pessoas atual com o número de pessoas do nó atual, se menor atualiza-o
+	// Compara o maior nÃºmero de pessoas atual com o nÃºmero de pessoas do nÃ³ atual, se menor atualiza-o
 	if ((((DEPT*)DATA(root))->n_pessoas) > maior)
 		maior = (((DEPT*)DATA(root))->n_pessoas);
-	// Chamada recursiva para as sub-árvores da esquerda e direita
+	// Chamada recursiva para as sub-Ã¡rvores da esquerda e direita
 	maiorLeft = GetMostPeopleDepartment(LEFT(root));
 	maiorRight = GetMostPeopleDepartment(RIGHT(root));
 	
@@ -272,13 +273,13 @@ int GetMostPeopleDepartment(BTREE_NODE* root) {
 	return maior;
 }
 void ShowMostPeopleDepartment(BTREE_NODE* root, int count) {
-	// Se a raíz é nula, não há departamentos
+	// Se a raÃ­z Ã© nula, nÃ£o hÃ¡ departamentos
 	if (root == NULL)
 		return;
-	// Compara o número de pessoasa do departamento do nó atal com o maior número de pessoas, se for igual mostra as informações do departamento
+	// Compara o nÃºmero de pessoasa do departamento do nÃ³ atal com o maior nÃºmero de pessoas, se for igual mostra as informaÃ§Ãµes do departamento
 	if ((((DEPT*)DATA(root))->n_pessoas) == count)
 		ShowDepartmentInfo(root);
-	// Chamadas recursivas (Pode haver 2 departamentos com o maior número de pessoas)
+	// Chamadas recursivas (Pode haver 2 departamentos com o maior nÃºmero de pessoas)
 	ShowMostPeopleDepartment(LEFT(root), count);
 	ShowMostPeopleDepartment(RIGHT(root), count);
 	return;
@@ -287,42 +288,42 @@ void ShowDepartmentInfo(BTREE_NODE* root) {
 	printf("\nNome: %s\nGanhos: %.2lf Euros\nDespesas: %.2lf Euros\nNumero de Pessoas: %d\n", ((DEPT*)DATA(root))->desig, ((DEPT*)DATA(root))->ganhos, ((DEPT*)DATA(root))->despesas, ((DEPT*)DATA(root))->n_pessoas);
 }
 bool IsDepartment(BTREE_NODE* root, const char* name) {
-	// Verifica se os dados são válidos
+	// Verifica se os dados sÃ£o vÃ¡lidos
 	if (root == NULL || name == NULL)
 		return false;
-	// Verifica se o nó atual é o nó procurado
+	// Verifica se o nÃ³ atual Ã© o nÃ³ procurado
 	if (!strcmp((((DEPT*)DATA(root))->desig), name))
 		return true;
 	return false;
 }
 bool IsBtreeNode(BTREE_NODE* root, const char* name) {
-	// Verifica se os dados são válidos
+	// Verifica se os dados sÃ£o vÃ¡lidos
 	if (root == NULL || name == NULL)
 		return false;
-	// Verifica se o nó atual é o procurado
+	// Verifica se o nÃ³ atual Ã© o procurado
 	if (IsDepartment(root, name))
 		return true;
 
-	// Chamada recursiva até encontrar o nó procurado, (se não encontrar retorna false)
+	// Chamada recursiva atÃ© encontrar o nÃ³ procurado, (se nÃ£o encontrar retorna false)
 	return IsBtreeNode(LEFT(root), name) || IsBtreeNode(RIGHT(root), name);
 }
 BTREE_NODE* find(BTREE_NODE* root, char* name)
 {
-	// Se a raíz for nula, não há departamentos
+	// Se a raÃ­z for nula, nÃ£o hÃ¡ departamentos
 	if (root == NULL)
 		return NULL;
-	// Caso o departamento seja o nó atual
+	// Caso o departamento seja o nÃ³ atual
 	if (!strcmp(((DEPT*)DATA(root))->desig, name))
 		return root;
-	// Chamada recursiva para a sub-árvore esquerda
+	// Chamada recursiva para a sub-Ã¡rvore esquerda
 	BTREE_NODE* left = find(root->left, name);
 	if (left)
 		return left;
-	// Chamada recursiva para a sub-árvore direita
+	// Chamada recursiva para a sub-Ã¡rvore direita
 	BTREE_NODE* right = find(root->right, name);
 	if (right)
 		return right;
-	// Não encontrou
+	// NÃ£o encontrou
 	return NULL;
 }
 void ShowDepartment(BTREE_NODE* root) {
