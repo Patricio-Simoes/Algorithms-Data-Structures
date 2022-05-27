@@ -1,0 +1,15 @@
+Departamento1;29;28;18
+Departamento2;7;5;4
+Departamento3;30;25;15
+Departamento4;12;2;20
+Departamento5;13;4;9
+Departamento6;9;2;13
+Departamento7;4;0;12
+Departamento8;23;22;25
+Departamento9;3;2;20
+Departamento10;23;20;22
+Departamento11;12;7;7
+Departamento12;9;1;13
+Departamento13;9;3;12
+Departamento14;4;1;13
+Departamento15;7;5;25
