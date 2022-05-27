@@ -1,0 +1,15 @@
+Paulo Silva;32;1
+Ines Ferreira;42;0
+Andre Monteiro;20;1
+Filipe Guedes;21;1
+Margarida Antunes;27;0
+Andreia Borges;20;1
+Daniela Paiva;45;1
+Nuno Filipe;40;1
+Paulo Miguel;37;1
+Guilherme Santos;60;0
+Joana Teixeira;43;1
+Rui Alves;26;1
+Ricardo Afonso;88;0
+Mafalda Costa;32;1
+Francisco Telmo;34;0
